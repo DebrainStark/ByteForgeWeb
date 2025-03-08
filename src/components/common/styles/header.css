@@ -1,0 +1,537 @@
+/* Header Forge-Themed Styles */
+
+.forge-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.4s ease;
+  padding: 1rem 0;
+  background: rgba(13, 13, 14, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+/* Header backdrop and accents */
+.header-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      rgba(60,60,60,0.05) 0px,
+      rgba(60,60,60,0.05) 2px,
+      transparent 2px,
+      transparent 4px
+    );
+  pointer-events: none;
+  z-index: -1;
+}
+
+.header-accent-line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 122, 0, 0.8) 50%,
+    transparent 100%);
+  opacity: 0.5;
+}
+
+/* Scrolled header effect */
+.header-scrolled {
+  background: rgba(10, 10, 12, 0.95);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  padding: 0.6rem 0;
+}
+
+.header-scrolled .header-accent-line {
+  opacity: 0.8;
+}
+
+/* Navbar container */
+.forge-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #f0f0f0;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Brand/Logo styling */
+.forge-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #f0f0f0;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.forge-brand:hover {
+  transform: translateY(-2px);
+}
+
+.brand-icon {
+  margin-right: 0.8rem;
+  position: relative;
+}
+
+.logo-anvil-body {
+  fill: #5a5a5a;
+  stroke: #999;
+  stroke-width: 0.5;
+}
+
+.logo-anvil-top {
+  fill: #6a6a6a;
+  stroke: #999;
+  stroke-width: 0.5;
+}
+
+.logo-anvil-neck {
+  fill: #7a7a7a;
+  stroke: #999;
+  stroke-width: 0.5;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  background: linear-gradient(to right, #b8b8b8, #f5f5f5, #ffffff, #f5f5f5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.brand-name .text-accent {
+  color: #ff7a00;
+  text-shadow: 
+    0 0 5px rgba(255, 122, 0, 0.4),
+    0 0 15px rgba(255, 122, 0, 0.2);
+  -webkit-text-stroke: 0.5px rgba(255, 122, 0, 0.3);
+}
+
+/* Hamburger menu toggle */
+.forge-toggler {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+}
+
+.toggler-bar {
+  width: 24px;
+  height: 2px;
+  background: #d0d0d0;
+  margin: 5px auto;
+  transition: all 0.3s ease;
+  position: relative;
+  border-radius: 2px;
+}
+
+.toggler-glow {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,122,0,0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.forge-toggler:hover .toggler-bar {
+  background: #ff7a00;
+}
+
+.forge-toggler:hover .toggler-glow {
+  opacity: 1;
+}
+
+.toggler-active .bar-1 {
+  transform: translateY(7px) rotate(45deg);
+  background: #ff7a00;
+}
+
+.toggler-active .bar-2 {
+  opacity: 0;
+}
+
+.toggler-active .bar-3 {
+  transform: translateY(-7px) rotate(-45deg);
+  background: #ff7a00;
+}
+
+.toggler-active .toggler-glow {
+  opacity: 0.6;
+}
+
+/* Navigation is imported from Navigation component */
+/* Adding some basic styles that would be in Navigation.js */
+
+/* Ember effects */
+.header-ember-container {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.header-ember {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: #ff7a00;
+  border-radius: 50%;
+  opacity: 0;
+  bottom: 0;
+  animation: ember-float 3s ease-in infinite;
+}
+
+.ember-1 {
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.ember-2 {
+  left: 50%;
+  animation-delay: 1.5s;
+}
+
+.ember-3 {
+  left: 80%;
+  animation-delay: 0.8s;
+}
+
+@keyframes ember-float {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-40px) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Media queries for responsive design */
+@media (max-width: 992px) {
+  .forge-toggler {
+    display: block;
+  }
+  
+  /* Assuming Navigation component handles the mobile styles */
+}
+
+@media (max-width: 576px) {
+  .brand-name {
+    font-size: 1.2rem;
+  }
+  
+  .forge-brand {
+    margin-left: 10px;
+  }
+  
+  .forge-toggler {
+    margin-right: 10px;
+  }
+}
+
+/* Navigation Forge-Themed Styles */
+
+/* Navigation container */
+.forge-navigation {
+  display: flex;
+  align-items: center;
+}
+
+/* Main navigation list */
+.forge-nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.forge-nav-item {
+  position: relative;
+}
+
+/* Nav link styling */
+.forge-nav-link {
+  color: #d0d0d0;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.forge-nav-link:hover {
+  color: #ffffff;
+}
+
+/* Active link styling */
+.forge-nav-link.active {
+  color: #ff7a00;
+  text-shadow: 0 0 8px rgba(255, 122, 0, 0.4);
+}
+
+/* Animated underline effect */
+.forge-nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    rgba(255, 122, 0, 0.8) 0%, 
+    rgba(255, 160, 60, 0.8) 100%);
+  transition: width 0.3s ease;
+  border-radius: 1px;
+}
+
+.forge-nav-link:hover::after,
+.forge-nav-link.active::after {
+  width: 100%;
+}
+
+/* Active link has glow spot */
+.forge-nav-link.active::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 5px;
+  background: radial-gradient(ellipse, rgba(255,122,0,0.6) 0%, transparent 70%);
+  filter: blur(3px);
+}
+
+/* Call to action button in nav */
+.forge-nav-cta {
+  margin-left: 1.5rem;
+}
+
+.forge-button {
+  background: linear-gradient(135deg, #ff7a00 0%, #ff9124 100%);
+  color: #ffffff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.forge-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.1) 0px,
+      rgba(255,255,255,0.1) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+  pointer-events: none;
+}
+
+.forge-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 122, 0, 0.3);
+}
+
+.forge-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(255, 122, 0, 0.3);
+}
+
+/* Mobile menu styles */
+@media (max-width: 992px) {
+  .forge-navigation {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(26, 26, 28, 0.97) 0%, rgba(13, 13, 14, 0.97) 100%);
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+    padding: 5rem 2rem 2rem;
+    overflow-y: auto;
+    z-index: 1050;
+    backdrop-filter: blur(10px);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .forge-navigation.nav-open {
+    transform: translateX(0);
+  }
+  
+  .forge-nav-list {
+    flex-direction: column;
+    gap: 1.8rem;
+    width: 100%;
+  }
+  
+  .forge-nav-link {
+    display: block;
+    padding: 0.7rem 0;
+    font-size: 1.1rem;
+  }
+  
+  .forge-nav-cta {
+    margin-left: 0;
+    margin-top: 2rem;
+    width: 100%;
+  }
+  
+  .forge-button {
+    width: 100%;
+    padding: 0.8rem;
+  }
+  
+  /* Mobile backdrop texture */
+  .forge-navigation::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      repeating-linear-gradient(
+        45deg,
+        rgba(60,60,60,0.05) 0px,
+        rgba(60,60,60,0.05) 2px,
+        transparent 2px,
+        transparent 4px
+      );
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  /* Mobile accent line */
+  .forge-navigation::after {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 3px;
+    height: 30%;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%, 
+      rgba(255, 122, 0, 0.8) 50%,
+      transparent 100%);
+    opacity: 0.6;
+  }
+  
+  /* Mobile navigation ember effects */
+  .nav-ember-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .nav-ember {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #ff7a00;
+    border-radius: 50%;
+    opacity: 0;
+    bottom: 0;
+    animation: nav-ember-float 4s ease-in infinite;
+  }
+  
+  .nav-ember-1 {
+    left: 30%;
+    animation-delay: 0s;
+  }
+  
+  .nav-ember-2 {
+    left: 60%;
+    animation-delay: 2s;
+  }
+  
+  .nav-ember-3 {
+    left: 45%;
+    animation-delay: 1s;
+  }
+  
+  @keyframes nav-ember-float {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(-80px) scale(0);
+      opacity: 0;
+    }
+  }
+}
+
+/* Extra small screen adjustments */
+@media (max-width: 576px) {
+  .forge-navigation {
+    width: 100%;
+  }
+}

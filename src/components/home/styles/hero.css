@@ -1,0 +1,960 @@
+/* Lively and Creative Forge Hero Section Styles */
+
+.forge-hero-section {
+    position: relative;
+    min-height: 100vh;
+    background-color: #0a0a0b;
+    color: #f5f5f5;
+    overflow: hidden;
+    --primary-color: #ff7a00;
+    --secondary-color: #ffae66;
+    --accent-color: #ffc107;
+    --dark-color: #0a0a0b;
+    --light-color: #f5f5f5;
+    --transition-standard: 0.5s ease;
+    --transition-smooth: 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  
+  /* Multi-layered creative background */
+  .forge-backdrop-deep {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(20,20,25,1) 0%, rgba(10,10,11,1) 80%);
+    z-index: -3;
+  }
+  
+  .forge-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      linear-gradient(45deg, rgba(20,20,20,0.97), rgba(10,10,10,0.98)),
+      repeating-linear-gradient(
+        45deg,
+        rgba(50,50,50,0.1) 0px,
+        rgba(50,50,50,0.1) 2px,
+        transparent 2px,
+        transparent 4px
+      );
+    background-blend-mode: normal;
+    z-index: -2;
+  }
+  
+  /* Metallic grid lines */
+  .forge-grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(rgba(100,100,100,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(100,100,100,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center center;
+    z-index: -1;
+  }
+  
+  /* Enhanced horizontal accent line */
+  .forge-accent-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      var(--primary-color) 50%,
+      transparent 100%);
+    opacity: 0.4;
+    z-index: -1;
+  }
+  
+  /* Dynamic accent glows */
+  .forge-accent-glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,122,0,0.15) 0%, transparent 70%);
+    filter: blur(40px);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 1s ease;
+  }
+  
+  .left-glow {
+    top: 30%;
+    left: -100px;
+    animation: glow-pulse 8s infinite alternate;
+  }
+  
+  .right-glow {
+    bottom: 20%;
+    right: -100px;
+    animation: glow-pulse 8s 4s infinite alternate;
+  }
+  
+  .is-visible .forge-accent-glow {
+    opacity: 1;
+  }
+  
+  @keyframes glow-pulse {
+    0% {
+      opacity: 0.2;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 0.5;
+      transform: scale(1.2);
+    }
+  }
+  
+  /* Enhanced ember container */
+  .forge-ember-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .forge-ember {
+    position: absolute;
+    bottom: 0;
+    border-radius: 50%;
+    filter: blur(1px);
+    pointer-events: none;
+    opacity: 0;
+    animation: ember-float linear forwards;
+    will-change: transform, opacity;
+  }
+  
+  @keyframes ember-float {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.8;
+    }
+    80% {
+      opacity: 0.3;
+    }
+    100% {
+      transform: translateY(-350px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+  /* Interactive logo styling */
+  .forge-logo-container {
+    position: relative;
+    margin-bottom: 2.5rem;
+    height: 120px;
+  }
+  
+  .forge-logo {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .anvil-container {
+    position: relative;
+    display: inline-block;
+    transform-origin: center;
+    animation: anvil-pulse 2s infinite alternate;
+  }
+  
+  @keyframes anvil-pulse {
+    0% {
+      transform: scale(1);
+      filter: drop-shadow(0 0 5px rgba(255, 122, 0, 0.3));
+    }
+    100% {
+      transform: scale(1.03);
+      filter: drop-shadow(0 0 10px rgba(255, 122, 0, 0.5));
+    }
+  }
+  
+  .anvil-body {
+    fill: #6e6e6e;
+    stroke: #999;
+    stroke-width: 0.5;
+  }
+  
+  .anvil-top {
+    fill: #7e7e7e;
+    stroke: #aaa;
+    stroke-width: 0.5;
+  }
+  
+  .anvil-neck {
+    fill: #5a5a5a;
+    stroke: #888;
+    stroke-width: 0.5;
+  }
+  
+  .anvil-highlight {
+    fill: var(--primary-color);
+    opacity: 0.9;
+    animation: highlight-pulse 2s infinite alternate;
+  }
+  
+  @keyframes highlight-pulse {
+    0% {
+      opacity: 0.7;
+      r: 2.5;
+    }
+    100% {
+      opacity: 1;
+      r: 3.5;
+    }
+  }
+  
+  /* Animated hammer */
+  .forge-hammer {
+    position: absolute;
+    top: 0;
+    right: -30px;
+    transform-origin: 30px 100px;
+    transform: rotate(-60deg);
+    transition: transform 0.2s ease-out;
+  }
+  
+  .hammer-handle {
+    fill: #8B4513;
+    stroke: #6d3010;
+    stroke-width: 0.5;
+  }
+  
+  .hammer-head {
+    fill: #5a5a5a;
+    stroke: #999;
+    stroke-width: 0.5;
+  }
+  
+  .hammer-active {
+    transform: rotate(-10deg);
+    transition: transform 0.15s cubic-bezier(0.6, 0.1, 0.15, 0.85);
+  }
+  
+  /* Spark effect when hammer hits */
+  .hammer-sparks {
+    position: absolute;
+    top: 90px;
+    left: 30px;
+    width: 0;
+    height: 0;
+  }
+  
+  .hammer-spark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    opacity: 1;
+    animation: spark-fly linear forwards;
+  }
+  
+  @keyframes spark-fly {
+    0% {
+      opacity: 1;
+      transform-origin: center;
+      transform: rotate(0deg) translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform-origin: center;
+    }
+  }
+  
+  /* Dynamic Typography */
+  .forge-title {
+    margin-bottom: 2rem;
+    line-height: 1.1;
+    font-weight: 900;
+    position: relative;
+  }
+  
+  .title-line {
+    display: block;
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+  
+  .metallic-text {
+    font-size: 4rem;
+    letter-spacing: -2px;
+    background: linear-gradient(to right, #b8b8b8, #f5f5f5, #ffffff, #f5f5f5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    transform: perspective(500px) rotateX(5deg);
+    display: inline-block;
+  }
+  
+  .highlight-word {
+    position: relative;
+    color: #ffffff;
+    text-shadow: 
+      0 0 5px rgba(255, 255, 255, 0.4),
+      0 0 15px rgba(255, 122, 0, 0.2);
+    -webkit-text-stroke: 1px rgba(255, 122, 0, 0.2);
+  }
+  
+  .accent-line {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+      var(--primary-color), 
+      var(--secondary-color) 50%,
+      transparent 100%);
+    border-radius: 2px;
+    opacity: 0;
+    transition: width 1.2s var(--transition-smooth), opacity 0.8s ease;
+  }
+  
+  .is-visible .accent-line {
+    width: 100%;
+    opacity: 1;
+  }
+  
+  .title-line-small {
+    display: block;
+    font-size: 2.2rem;
+    color: #cecece;
+    margin-top: 0.5rem;
+    letter-spacing: 1px;
+  }
+  
+  /* Enhanced tagline */
+  .forge-tagline {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #d0d0d0;
+    max-width: 550px;
+    letter-spacing: 0.5px;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 15px;
+    margin-bottom: 2.5rem;
+    position: relative;
+    background: linear-gradient(90deg, 
+      rgba(255, 122, 0, 0.05) 0%, 
+      transparent 30%);
+  }
+  
+  .text-accent {
+    color: var(--primary-color);
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255, 122, 0, 0.2);
+    position: relative;
+    transition: text-shadow 0.3s ease;
+  }
+  
+  .text-accent::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary-color), transparent);
+  }
+  
+  .forge-tagline:hover .text-accent {
+    text-shadow: 0 0 15px rgba(255, 122, 0, 0.4);
+  }
+  
+  /* Energetic Button styles */
+  .forge-cta {
+    margin-top: 2.5rem;
+    position: relative;
+  }
+  
+  .forge-button {
+    background: linear-gradient(to bottom, #823800, var(--primary-color));
+    border: none;
+    color: #fff;
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 
+      0 4px 15px rgba(255, 122, 0, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    transition: all var(--transition-standard);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .button-icon {
+    margin-right: 0.5rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .button-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+    z-index: 0;
+  }
+  
+  .forge-button:hover {
+    background: linear-gradient(to bottom, var(--primary-color), #823800);
+    transform: translateY(-3px);
+    box-shadow: 
+      0 6px 20px rgba(255, 122, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  }
+  
+  .forge-button:hover .button-glow {
+    transform: translateX(100%);
+    transition: transform 0.8s ease;
+  }
+  
+  .forge-button-alt {
+    background: transparent;
+    color: #f0f0f0;
+    border: 2px solid #6c3d00;
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all var(--transition-standard);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .button-border {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+  }
+  
+  .forge-button-alt:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background: rgba(255, 122, 0, 0.05);
+    transform: translateY(-3px);
+  }
+  
+  .forge-button-alt:hover .button-border {
+    width: 100%;
+  }
+  
+  /* Interactive forge illustration */
+  .forge-illustration {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  /* Forge fire with realistic flames */
+  .forge-fire {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    height: 150px;
+  }
+  
+  .fire-base {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to bottom, #444, #222);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .coal {
+    position: absolute;
+    background: #111;
+    border-radius: 50%;
+  }
+  
+  .coal-1 {
+    width: 40px;
+    height: 25px;
+    bottom: 5px;
+    left: 20px;
+    animation: coal-glow 3s infinite alternate;
+  }
+  
+  .coal-2 {
+    width: 50px;
+    height: 30px;
+    bottom: 5px;
+    left: 60px;
+    animation: coal-glow 3s 0.5s infinite alternate;
+  }
+  
+  .coal-3 {
+    width: 35px;
+    height: 20px;
+    bottom: 5px;
+    right: 15px;
+    animation: coal-glow 3s 1s infinite alternate;
+  }
+  
+  @keyframes coal-glow {
+    0% {
+      box-shadow: 0 0 5px rgba(255, 122, 0, 0.5) inset;
+    }
+    100% {
+      box-shadow: 0 0 15px rgba(255, 122, 0, 0.8) inset;
+    }
+  }
+  
+  .fire-glow {
+    position: absolute;
+    bottom: 30px;
+    left: 20%;
+    width: 60%;
+    height: 60px;
+    background: radial-gradient(ellipse at center bottom, 
+      rgba(255, 180, 0, 0.8) 0%, 
+      rgba(255, 122, 0, 0.6) 50%, 
+      transparent 100%);
+    border-radius: 50% 50% 35% 35%;
+    filter: blur(5px);
+    animation: fire-pulse 3s infinite alternate;
+    opacity: 0.8;
+  }
+  
+  @keyframes fire-pulse {
+    0% {
+      transform: scale(0.95) translateY(2px);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(1.05) translateY(-2px);
+      opacity: 0.9;
+    }
+  }
+  
+  .fire-flames {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    overflow: hidden;
+  }
+  
+  .flame {
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(to top, 
+      rgba(255, 122, 0, 0.8), 
+      rgba(255, 180, 0, 0.6) 60%, 
+      rgba(255, 220, 100, 0.3));
+    border-radius: 50% 50% 20% 20% / 60% 60% 40% 40%;
+    transform-origin: bottom;
+    animation: flame-flicker 2s infinite alternate;
+  }
+  
+  .flame-1 {
+    left: 25%;
+    width: 30px;
+    height: 60px;
+    animation-duration: 2s;
+    animation-delay: 0.2s;
+  }
+  
+  .flame-2 {
+    left: 45%;
+    width: 40px;
+    height: 80px;
+    animation-duration: 2.5s;
+  }
+  
+  .flame-3 {
+    right: 25%;
+    width: 25px;
+    height: 50px;
+    animation-duration: 1.8s;
+    animation-delay: 0.5s;
+  }
+  
+  @keyframes flame-flicker {
+    0%, 100% {
+      transform: scale(1) translateY(0) rotate(-1deg);
+      border-radius: 50% 50% 20% 20% / 60% 60% 40% 40%;
+    }
+    25% {
+      transform: scale(1.02, 0.97) translateY(-1px) rotate(1deg);
+      border-radius: 45% 55% 20% 20% / 60% 60% 40% 40%;
+    }
+    50% {
+      transform: scale(0.98, 1.03) translateY(1px) rotate(-1.5deg);
+      border-radius: 50% 50% 25% 15% / 55% 65% 35% 45%;
+    }
+    75% {
+      transform: scale(1.02, 0.98) translateY(0) rotate(1deg);
+      border-radius: 55% 45% 15% 25% / 65% 55% 45% 35%;
+    }
+  }
+  
+  .fire-sparks {
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+  }
+  
+  /* Forge tools styling */
+  .forge-tools {
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+    width: 120px;
+    height: 150px;
+  }
+  
+  .tool-item {
+    position: absolute;
+    background: linear-gradient(to bottom, #777, #444);
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .tool-poker {
+    width: 6px;
+    height: 100px;
+    bottom: 0;
+    right: 80px;
+    transform: rotate(-15deg);
+    transform-origin: bottom;
+    animation: tool-sway 8s infinite ease-in-out;
+  }
+  
+  .tool-tongs {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    width: 70px;
+    height: 120px;
+  }
+  
+  .tongs-handle {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 90px;
+    background: linear-gradient(to bottom, #777, #444);
+    border-radius: 2px;
+  }
+  
+  .tongs-head {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 40px;
+    border-radius: 0 0 15px 15px;
+    border-left: 8px solid #555;
+    border-right: 8px solid #555;
+    border-bottom: 8px solid #555;
+    box-sizing: border-box;
+    animation: tongs-grip 8s infinite ease-in-out;
+  }
+  
+  .forge-material {
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    top: 20px;
+    right: 25px;
+    background: linear-gradient(to bottom, #ff7a00, #cc5500);
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(255, 122, 0, 0.5);
+    animation: material-glow 3s infinite alternate;
+  }
+  
+  @keyframes tool-sway {
+    0%, 100% {
+      transform: rotate(-15deg);
+    }
+    50% {
+      transform: rotate(-10deg);
+    }
+  }
+  
+  @keyframes tongs-grip {
+    0%, 100% {
+      height: 40px;
+    }
+    50% {
+      height: 30px;
+    }
+  }
+  
+  @keyframes material-glow {
+    0% {
+      box-shadow: 0 0 10px rgba(255, 122, 0, 0.5);
+      background: linear-gradient(to bottom, #ff7a00, #cc5500);
+    }
+    100% {
+      box-shadow: 0 0 20px rgba(255, 122, 0, 0.8);
+      background: linear-gradient(to bottom, #ff9a00, #ff7a00);
+    }
+  }
+  
+  /* Enhanced scroll indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transition: opacity var(--transition-standard);
+  }
+  
+  .is-visible .scroll-indicator {
+    opacity: 0.8;
+  }
+  
+  .scroll-indicator:hover {
+    opacity: 1;
+  }
+  
+  .scroll-text {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
+    color: #d0d0d0;
+  }
+  
+  .scroll-arrows {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 40px;
+    overflow: hidden;
+  }
+  
+  .scroll-arrow {
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    transform: rotate(45deg);
+    margin-top: -10px;
+    animation: scroll-bounce 2s infinite;
+    filter: drop-shadow(0 0 5px rgba(255, 122, 0, 0.3));
+  }
+  
+  .scroll-arrow-2 {
+    opacity: 0.5;
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes scroll-bounce {
+    0%, 100% {
+      transform: translateY(0) rotate(45deg);
+    }
+    50% {
+      transform: translateY(10px) rotate(45deg);
+    }
+  }
+  
+  /* Clean, reliable animations */
+  .is-visible .fade-in-element {
+    animation: fade-in 0.8s ease forwards;
+  }
+  
+  .is-visible .slide-in-element {
+    animation: slide-in 0.8s forwards;
+  }
+  
+  .delay-1 {
+    animation-delay: 0.15s !important;
+  }
+  
+  .delay-2 {
+    animation-delay: 0.3s !important;
+  }
+  
+  .delay-3 {
+    animation-delay: 0.45s !important;
+  }
+  
+  .delay-4 {
+    animation-delay: 0.6s !important;
+  }
+  
+  .delay-5 {
+    animation-delay: 0.75s !important;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .metallic-text {
+      font-size: 3.5rem;
+    }
+    
+    .title-line-small {
+      font-size: 2rem;
+    }
+    
+    .forge-illustration {
+      max-width: 300px;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .metallic-text {
+      font-size: 3rem;
+    }
+    
+    .title-line-small {
+      font-size: 1.8rem;
+    }
+    
+    .forge-tagline {
+      font-size: 1.2rem;
+    }
+    
+    .text-accent {
+      font-size: 1.4rem;
+    }
+    
+    .forge-logo-container {
+      height: 100px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .metallic-text {
+      font-size: 2.5rem;
+    }
+    
+    .title-line-small {
+      font-size: 1.6rem;
+    }
+    
+    .forge-tagline {
+      font-size: 1.1rem;
+    }
+    
+    .forge-cta {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .forge-cta .ms-4 {
+      margin-left: 1rem !important;
+    }
+    
+    .anvil-container svg {
+      width: 70px;
+      height: 70px;
+    }
+    
+    .forge-hammer svg {
+      width: 50px;
+      height: 100px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .metallic-text {
+      font-size: 2.2rem;
+    }
+    
+    .title-line-small {
+      font-size: 1.4rem;
+    }
+    
+    .forge-tagline {
+      font-size: 1rem;
+    }
+    
+    .forge-cta {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .forge-cta .ms-4 {
+      margin-left: 0 !important;
+      margin-top: 1rem;
+    }
+    
+    .forge-logo-container {
+      height: 80px;
+    }
+    
+    .anvil-container svg {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .forge-hammer {
+      right: -20px;
+    }
+    
+    .forge-hammer svg {
+      width: 40px;
+      height: 80px;
+    }
+  }
